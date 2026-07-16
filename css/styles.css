@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+/* ─── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --galway:    #433f39;
+  --atlantic:  #7d9bb3;
+  --burren:    #656033;
+  --connemara: #996c41;
+  --dingle:    #6c504c;
+  --mist:      #c6d2e5;
+  --surface:   #f8f7f4;
+  --card:      #ffffff;
+  --img-ph:    #d9d9d9;
+  --gap:       10px;
+  --sans:      'Space Grotesk', sans-serif;
+  --serif:     'Lora', Georgia, 'Times New Roman', serif;
+
+  /* Regional header accent — Dublin leg (Days 1-2), distinct from the Galway-based leg (Days 3-10) */
+  --dublin: #6b2f2b;  /* Georgian brick / oxblood */
+}
+
+/* ─── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--sans); background: var(--surface); color: var(--galway); }
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── INDEX PAGE ─────────────────────────────────────────────── */
+
+.cover {
+  max-width: 402px;
+  margin: 0 auto;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding-top: 10px;
+  padding-bottom: 2rem;
+}
+
+/* Hero — 500px, inset 10px, rounded 20px, centered title */
+.cover-hero {
+  margin: 0 10px;
+  height: 500px;
+  background: var(--galway);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.cover-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.cover-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  z-index: 1;
+}
+.cover-hero h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1.2px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Day card wrapper — 10px horizontal padding */
+.day-card-wrap {
+  width: 100%;
+  padding: 0 10px;
+  flex-shrink: 0;
+}
+
+/* Day card — white, tall, image on top, 20px radius */
+.day-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Image — full width on top, 200px tall, rounded top corners */
+.day-card-image {
+  width: 100%;
+  height: 200px;
+  background: var(--img-ph);
+  overflow: hidden;
+  position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.day-card-image img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* Text content — below image, 20px padding */
+.day-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+}
+.day-card-meta { display: flex; flex-direction: column; gap: 2px; }
+.day-card-label {
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--atlantic);
+  letter-spacing: 0.4px;
+}
+.day-card-title {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--galway);
+}
+.day-card-summary {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--dingle);
+  line-height: 1.45;
+}
+
+
+/* ─── DAY DETAIL PAGE ────────────────────────────────────────── */
+
+.day-page {
+  max-width: 402px;
+  margin: 0 auto;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* Top card — nav + map + tabs merged into one rounded unit, inset 10px from page edges */
+.day-top-wrap {
+  width: 100%;
+  padding: 10px 10px 0 10px;
+  flex-shrink: 0;
+}
+.day-top-card {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+/* Dublin leg (Days 1-2) — swap the header/tabs accent from Galway charcoal to Dublin brick */
+.day-top-card.region-dublin .day-nav,
+.day-top-card.region-dublin .day-tabs {
+  background: var(--dublin);
+}
+
+/* Nav bar — #433f39, holds title + breadcrumb + links */
+.day-nav {
+  width: 100%;
+  background: var(--galway);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  padding: 16px 20px;
+  flex-shrink: 0;
+}
+.day-nav-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.day-nav-title {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+/* Breadcrumb inside the nav bar */
+.day-nav-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.nav-bc-day   { font-family: var(--sans); font-size: 12px; font-weight: 700; color: #fff; white-space: nowrap; }
+.nav-bc-dot   { width: 5px; height: 5px; border-radius: 50%; background: var(--mist); flex-shrink: 0; }
+.nav-bc-date  { font-family: var(--sans); font-size: 12px; font-weight: 300; color: var(--mist); white-space: nowrap; }
+.nav-bc-title { font-family: var(--sans); font-size: 15px; font-weight: 700; color: #fff; }
+.day-nav-links {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+}
+.day-nav-links a {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--mist);
+  white-space: nowrap;
+}
+.day-nav-links .nav-prev { grid-column: 1; justify-self: start; }
+.day-nav-links .nav-all  { grid-column: 2; justify-self: center; }
+.day-nav-links .nav-next { grid-column: 3; justify-self: end; }
+
+/* Map — mist bg, 400px tall, flush within the top card (no independent radius) */
+.day-map {
+  width: 100%;
+  height: 400px;
+  background: var(--mist);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.day-map > div[id^="gmap"] {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+.map-placeholder-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--atlantic);
+  pointer-events: none;
+}
+
+/* Tab bar — #433f39, 59px tall, flush within the top card */
+.day-tabs {
+  width: 100%;
+  height: 59px;
+  background: var(--galway);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  flex-shrink: 0;
+}
+.day-tabs a {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.55px;
+  color: var(--mist);
+  white-space: nowrap;
+}
+.day-tabs a:first-child { color: #fff; }
+
+/* Itinerary section */
+.day-section {
+  width: 100%;
+  background: var(--card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Section pill header */
+.section-pill {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.55px;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.pill-galway    { background: var(--galway); }
+.pill-burren    { background: var(--burren); }
+.pill-connemara { background: var(--connemara); }
+.pill-atlantic  { background: var(--atlantic); }
+.pill-dingle    { background: var(--dingle); }
+
+/* Itinerary row */
+.itin-row {
+  width: 100%;
+  background: var(--galway);
+  border-radius: 10px;
+  padding: 5px 10px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.itin-time {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.itin-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--mist);
+}
+.itin-notes {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--galway);
+  line-height: 1.5;
+  padding: 0 2px;
+}
+
+/* Location pins */
+.location-pin {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--atlantic);
+  line-height: 1.5;
+}
+.location-pin a { color: var(--atlantic); }
+.location-pin a::before { content: "📍 "; }
+
+/* Notes body */
+.note-body {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--galway);
+  line-height: 1.6;
+}
+
+/* Contacts */
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 0;
+  border-bottom: 0.5px solid #f0ede8;
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-label { font-size: 12px; font-weight: 500; color: var(--galway); }
+.contact-value { font-size: 12px; color: var(--atlantic); text-align: right; }
+.contact-value a { color: var(--atlantic); }
+
+/* Bottom nav */
+.day-bottom-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-top: 0.5px solid #e8e5df;
+  background: var(--surface);
+}
+.day-bottom-nav a { font-size: 12px; font-weight: 600; color: var(--atlantic); }
+.day-bottom-nav .nav-center { font-size: 11px; font-weight: 400; color: var(--dingle); }
+.day-bottom-nav .nav-prev { grid-column: 1; justify-self: start; }
+.day-bottom-nav .nav-center { grid-column: 2; justify-self: center; }
+.day-bottom-nav .nav-next { grid-column: 3; justify-self: end; }
+
+@media (max-width: 402px) {
+  .cover, .day-page { max-width: 100%; }
+}

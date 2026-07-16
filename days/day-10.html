@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Day 10 — Fly Home</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="day-page">
+
+
+  <div class="day-top-wrap">
+  <div class="day-top-card">
+  <!-- Nav bar -->
+  <nav class="day-nav">
+    <div class="day-nav-head">
+      <div class="day-nav-title">Ireland 2026</div>
+      <div class="day-nav-breadcrumb">
+        <span class="nav-bc-day">Day 10</span>
+        <span class="nav-bc-dot"></span>
+        <span class="nav-bc-date">Mon, Aug 10, 2026</span>
+        <span class="nav-bc-dot"></span>
+        <span class="nav-bc-title">Fly Home</span>
+      </div>
+    </div>
+    <div class="day-nav-links">
+      <a href="day-09.html" class="nav-prev">← Day 9</a>
+      <a href="../index.html" class="nav-all">All Days</a>
+    </div>
+  </nav>
+  <!-- Map — styled Google Map with Ireland palette -->
+  <div class="day-map" id="mapd10">
+    <span class="map-placeholder-label">Map with pins</span>
+  </div>
+  <script>
+  const IRELAND_STYLE=[{elementType:'geometry',stylers:[{color:'#f5f4f1'}]},{elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{elementType:'labels.text.stroke',stylers:[{color:'#f5f4f1'}]},{featureType:'water',elementType:'geometry',stylers:[{color:'#7d9bb3'}]},{featureType:'water',elementType:'labels.text.fill',stylers:[{color:'#c6d2e5'}]},{featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'poi.park',elementType:'geometry',stylers:[{color:'#c8c9a8'}]},{featureType:'poi.park',elementType:'labels.text.fill',stylers:[{color:'#656033'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#e0ddd5'}]},{featureType:'poi',elementType:'labels.text.fill',stylers:[{color:'#6c504c'}]},{featureType:'poi',elementType:'labels.icon',stylers:[{visibility:'off'}]},{featureType:'road',elementType:'geometry',stylers:[{color:'#ffffff'}]},{featureType:'road',elementType:'geometry.stroke',stylers:[{color:'#c6d2e5'}]},{featureType:'road',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'road.highway',elementType:'geometry.stroke',stylers:[{color:'#7d9bb3'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#f0ede8'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'administrative',elementType:'geometry',stylers:[{color:'#433f39'}]},{featureType:'administrative',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'administrative.land_parcel',elementType:'labels',stylers:[{visibility:'off'}]}];
+  function addPin(map,lat,lng,label,color){
+    var mk=new google.maps.Marker({position:{lat,lng},map,title:label,icon:{path:google.maps.SymbolPath.CIRCLE,scale:9,fillColor:color,fillOpacity:1,strokeColor:'#fff',strokeWeight:2}});
+    var iw=new google.maps.InfoWindow({content:'<div style="font-family:Space Grotesk,sans-serif;font-size:12px;font-weight:600;color:#433f39;padding:4px 8px;white-space:nowrap">'+label+'</div>'});
+    mk.addListener('click',function(){iw.open(map,mk)});
+  }
+  window._mapFns=window._mapFns||[];
+  window._mapFns.push(function(){
+    var map=new google.maps.Map(document.getElementById('mapd10'),{center:{lat:52.7,lng:-8.92},zoom:10,styles:IRELAND_STYLE,disableDefaultUI:true,zoomControl:true,zoomControlOptions:{position:google.maps.ControlPosition.RIGHT_BOTTOM}});
+      addPin(map,53.277,-9.0467,"The Dean Galway — check out","#433f39");
+      addPin(map,52.6926,-8.9214,"Shannon Airport","#7d9bb3");
+  });
+  </script>
+
+  <!-- Tab bar -->
+  <div class="day-tabs">
+    <a href="#itinerary" class="active">Itinerary</a>
+    <a href="#locations">Key Location Pins</a>
+    <a href="#notes">Notes</a>
+  </div>
+  </div>
+  </div>
+
+  <!-- Itinerary -->
+  <div class="day-section" id="itinerary">
+    <span class="section-pill pill-galway">Itinerary</span>
+    <div class="itin-row">
+      <span class="itin-time">Early</span>
+      <span class="itin-desc">Breakfast at The Dean · check out</span>
+    </div>
+      <p class="itin-notes">Have luggage ready the night before.</p>
+    <div class="itin-row">
+      <span class="itin-time">~8:00am</span>
+      <span class="itin-desc">Drive to Shannon Airport — ~1 hour</span>
+    </div>
+      <p class="itin-notes">M18 southbound. Straightforward motorway.</p>
+    <div class="itin-row">
+      <span class="itin-time">~9:00am</span>
+      <span class="itin-desc">Return rental car at Hertz Shannon</span>
+    </div>
+      <p class="itin-notes">Follow signs for car rental returns. Fill tank before returning.</p>
+    <div class="itin-row">
+      <span class="itin-time">~9:30am</span>
+      <span class="itin-desc">Check in · US Pre-Clearance at Shannon</span>
+    </div>
+      <p class="itin-notes">You clear US customs and immigration before boarding. Arrive into JFK as domestic passenger.</p>
+    <div class="itin-row">
+      <span class="itin-time">Flight</span>
+      <span class="itin-desc">Shannon → JFK</span>
+    </div>
+      <p class="itin-notes">Safe travels. 🇺🇸</p>
+  </div>
+
+  <!-- Key Locations -->
+  <div class="day-section" id="locations">
+    <span class="section-pill pill-burren">Key Location Pins</span>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=The+Dean+Hotel+Galway" target="_blank">The Dean Galway — check out</a><br><span style="color:#6c504c;font-size:11px">Confirm checkout time with hotel.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Shannon+Airport+Ireland" target="_blank">Shannon Airport</a><br><span style="color:#6c504c;font-size:11px">About 1 hour from Galway on M18.</span>
+      <span style="font-size:10px;font-weight:600;background:#ddf0e6;color:#1a6b3c;padding:2px 8px;border-radius:20px;margin-top:4px;display:inline-block">✓ Booked · Shannon → JFK</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Hertz+Car+Rental+Shannon+Airport+Ireland" target="_blank">Hertz — Shannon Airport</a><br><span style="color:#6c504c;font-size:11px">Follow signs for car rental returns. Reference Day 3 pickup photos.</span></p>
+  </div>
+
+  <div class="day-section">
+    <span class="section-pill pill-atlantic">Contacts</span>
+    <div class="contact-row"><span class="contact-label">Shannon Airport</span><span class="contact-value"><a href="tel:+35361712000">+353 61 712 000</a></span></div>
+    <div class="contact-row"><span class="contact-label">Hertz Shannon</span><span class="contact-value"><a href="tel:+35361471369">+353 61 471 369</a></span></div>
+    <div class="contact-row"><span class="contact-label">The Dean Galway</span><span class="contact-value"><a href="tel:+35391865700">+353 91 865 700</a></span></div>
+  </div>
+  <!-- Notes -->
+  <div class="day-section" id="notes">
+    <span class="section-pill pill-connemara">Notes</span>
+    <p class="note-body">→ US Pre-Clearance at Shannon means you arrive into JFK as a domestic passenger — no immigration queues.</p>
+    <p class="note-body">→ Pack the night before. Don't leave it to the morning.</p>
+    <p class="note-body">→ Fill the rental car tank near the airport before returning — don't pay Hertz's fuel premium.</p>
+    <p class="note-body">→ Aran Sweater and any fragile gifts — make sure they're in carry-on.</p>
+  </div>
+
+  <!-- Bottom nav -->
+  <div class="day-bottom-nav">
+    <a href="day-09.html" class="nav-prev">← Day 9</a>
+    <a href="../index.html" class="nav-center">All Days</a>
+  </div>
+
+</div>
+<script>window.initIrelandMaps = function () { (window._mapFns || []).forEach(function (f) { f(); }); };</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxGPGzf2qIhnhGrZ1rKRVuwMgnBBBFoXA&callback=initIrelandMaps"></script>
+</body>
+</html>

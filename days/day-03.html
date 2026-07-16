@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Day 3 — Drive to Galway</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="day-page">
+
+
+  <div class="day-top-wrap">
+  <div class="day-top-card">
+  <!-- Nav bar -->
+  <nav class="day-nav">
+    <div class="day-nav-head">
+      <div class="day-nav-title">Ireland 2026</div>
+      <div class="day-nav-breadcrumb">
+        <span class="nav-bc-day">Day 3</span>
+        <span class="nav-bc-dot"></span>
+        <span class="nav-bc-date">Mon, Aug 3, 2026</span>
+        <span class="nav-bc-dot"></span>
+        <span class="nav-bc-title">Drive to Galway</span>
+      </div>
+    </div>
+    <div class="day-nav-links">
+      <a href="day-02.html" class="nav-prev">← Day 2</a>
+      <a href="../index.html" class="nav-all">All Days</a>
+      <a href="day-04.html" class="nav-next">Day 4 →</a>
+    </div>
+  </nav>
+  <!-- Map — styled Google Map with Ireland palette -->
+  <div class="day-map" id="mapd3">
+    <span class="map-placeholder-label">Map with pins</span>
+  </div>
+  <script>
+  const IRELAND_STYLE=[{elementType:'geometry',stylers:[{color:'#f5f4f1'}]},{elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{elementType:'labels.text.stroke',stylers:[{color:'#f5f4f1'}]},{featureType:'water',elementType:'geometry',stylers:[{color:'#7d9bb3'}]},{featureType:'water',elementType:'labels.text.fill',stylers:[{color:'#c6d2e5'}]},{featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'poi.park',elementType:'geometry',stylers:[{color:'#c8c9a8'}]},{featureType:'poi.park',elementType:'labels.text.fill',stylers:[{color:'#656033'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#e0ddd5'}]},{featureType:'poi',elementType:'labels.text.fill',stylers:[{color:'#6c504c'}]},{featureType:'poi',elementType:'labels.icon',stylers:[{visibility:'off'}]},{featureType:'road',elementType:'geometry',stylers:[{color:'#ffffff'}]},{featureType:'road',elementType:'geometry.stroke',stylers:[{color:'#c6d2e5'}]},{featureType:'road',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'road.highway',elementType:'geometry.stroke',stylers:[{color:'#7d9bb3'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#f0ede8'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'administrative',elementType:'geometry',stylers:[{color:'#433f39'}]},{featureType:'administrative',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'administrative.land_parcel',elementType:'labels',stylers:[{visibility:'off'}]}];
+  function addPin(map,lat,lng,label,color){
+    var mk=new google.maps.Marker({position:{lat,lng},map,title:label,icon:{path:google.maps.SymbolPath.CIRCLE,scale:9,fillColor:color,fillOpacity:1,strokeColor:'#fff',strokeWeight:2}});
+    var iw=new google.maps.InfoWindow({content:'<div style="font-family:Space Grotesk,sans-serif;font-size:12px;font-weight:600;color:#433f39;padding:4px 8px;white-space:nowrap">'+label+'</div>'});
+    mk.addListener('click',function(){iw.open(map,mk)});
+  }
+  window._mapFns=window._mapFns||[];
+  window._mapFns.push(function(){
+    var map=new google.maps.Map(document.getElementById('mapd3'),{center:{lat:53.2,lng:-8.0},zoom:7,styles:IRELAND_STYLE,disableDefaultUI:true,zoomControl:true,zoomControlOptions:{position:google.maps.ControlPosition.RIGHT_BOTTOM}});
+      addPin(map,53.3388,-6.291,"Hertz — South Circular Road","#433f39");
+      addPin(map,53.4239,-7.9403,"Athlone — Bastion Kitchen","#996c41");
+      addPin(map,53.423,-7.942,"Athlone Castle","#7d9bb3");
+      addPin(map,53.277,-9.0467,"The Dean Galway","#433f39");
+  });
+  </script>
+
+  <!-- Tab bar -->
+  <div class="day-tabs">
+    <a href="#itinerary" class="active">Itinerary</a>
+    <a href="#locations">Key Location Pins</a>
+    <a href="#notes">Notes</a>
+  </div>
+  </div>
+  </div>
+
+  <!-- Itinerary -->
+  <div class="day-section" id="itinerary">
+    <span class="section-pill pill-galway">Itinerary</span>
+    <div class="itin-row">
+      <span class="itin-time">9:30am</span>
+      <span class="itin-desc">Slow breakfast · Grafton Street shops</span>
+    </div>
+    <div class="itin-row">
+      <span class="itin-time">11:30am</span>
+      <span class="itin-desc">Cab to Hertz — 151 South Circular Road</span>
+    </div>
+      <p class="itin-notes">Photograph every scratch before leaving the lot. Timestamped photos.</p>
+    <div class="itin-row">
+      <span class="itin-time">12:15pm</span>
+      <span class="itin-desc">Drive west on M6 toward Athlone</span>
+    </div>
+    <div class="itin-row">
+      <span class="itin-time">2:00pm</span>
+      <span class="itin-desc">Bastion Kitchen lunch — Athlone</span>
+    </div>
+      <p class="itin-notes">Walk in, open Mondays. Best lunch in Athlone on a Monday.</p>
+    <div class="itin-row">
+      <span class="itin-time">3:00pm</span>
+      <span class="itin-desc">Athlone Castle walk + Sean's Bar</span>
+    </div>
+      <p class="itin-notes">30 min stretch. Sean's Bar claims to be Ireland's oldest pub (1630).</p>
+    <div class="itin-row">
+      <span class="itin-time">4:30pm</span>
+      <span class="itin-desc">Check in The Dean Galway</span>
+    </div>
+      <p class="itin-notes">Your base for 7 nights. Ask about car parking on arrival.</p>
+    <div class="itin-row">
+      <span class="itin-time">6:00pm</span>
+      <span class="itin-desc">Explore Latin Quarter</span>
+    </div>
+      <p class="itin-notes">Shop Street and Quay Street. Get your bearings — this is your neighborhood.</p>
+    <div class="itin-row">
+      <span class="itin-time">7:30pm</span>
+      <span class="itin-desc">The King's Head — walk in</span>
+    </div>
+      <p class="itin-notes">800-year-old building. Connemara lamb, seafood chowder, live music.</p>
+    <div class="itin-row">
+      <span class="itin-time">9:30pm</span>
+      <span class="itin-desc">Tigh Coili — traditional music session</span>
+    </div>
+      <p class="itin-notes">One of Galway's most authentic trad pubs. 5 min walk.</p>
+  </div>
+
+  <!-- Key Locations -->
+  <div class="day-section" id="locations">
+    <span class="section-pill pill-burren">Key Location Pins</span>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Hertz+Car+Rental+151+South+Circular+Road+Dublin+D8" target="_blank">Hertz — 151 South Circular Road</a><br><span style="color:#6c504c;font-size:11px">Open Monday from 8:30am. 10–12 min taxi from The Hoxton.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Bastion+Kitchen+Athlone" target="_blank">Bastion Kitchen — Athlone</a><br><span style="color:#6c504c;font-size:11px">Open Mondays. Walk-in, no reservation needed.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Athlone+Castle+Visitor+Centre" target="_blank">Athlone Castle</a><br><span style="color:#6c504c;font-size:11px">Norman castle on the River Shannon. 20–30 min walk.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=The+Dean+Hotel+Galway" target="_blank">The Dean Galway</a><br><span style="color:#6c504c;font-size:11px">Your Galway base for 7 nights.</span>
+      <span style="font-size:10px;font-weight:600;background:#ddf0e6;color:#1a6b3c;padding:2px 8px;border-radius:20px;margin-top:4px;display:inline-block">✓ Booked · Aug 3–10</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=The+King's+Head+Galway" target="_blank">The King's Head — High Street</a><br><span style="color:#6c504c;font-size:11px">800-year-old building. Walk in — arrive 7:30pm.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Tigh+Coili+Galway" target="_blank">Tigh Coili — Mainguard Street</a><br><span style="color:#6c504c;font-size:11px">Authentic trad sessions every night.</span></p>
+  </div>
+
+  <div class="day-section">
+    <span class="section-pill pill-atlantic">Contacts</span>
+    <div class="contact-row"><span class="contact-label">Hertz South Circular Road</span><span class="contact-value"><a href="tel:+35316136040">+353 1 613 6040</a></span></div>
+    <div class="contact-row"><span class="contact-label">The Dean Galway</span><span class="contact-value"><a href="tel:+35391865700">+353 91 865 700</a></span></div>
+    <div class="contact-row"><span class="contact-label">The King's Head</span><span class="contact-value"><a href="tel:+35391566630">+353 91 566 630</a></span></div>
+  </div>
+  <!-- Notes -->
+  <div class="day-section" id="notes">
+    <span class="section-pill pill-connemara">Notes</span>
+    <p class="note-body">→ Drive on the left. Irish roads are narrow especially outside cities — take it easy on the first hour.</p>
+    <p class="note-body">→ Photograph the rental car thoroughly at Hertz before pulling out — front, back, both sides.</p>
+    <p class="note-body">→ M6 motorway Dublin to Athlone is straightforward — fast, well signposted.</p>
+    <p class="note-body">→ Ask The Dean about car parking on arrival. Don't arrive without knowing where you're going.</p>
+  </div>
+
+  <!-- Bottom nav -->
+  <div class="day-bottom-nav">
+    <a href="day-02.html" class="nav-prev">← Day 2</a>
+    <a href="../index.html" class="nav-center">All Days</a>
+    <a href="day-04.html" class="nav-next">Day 4 →</a>
+  </div>
+
+</div>
+<script>window.initIrelandMaps = function () { (window._mapFns || []).forEach(function (f) { f(); }); };</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxGPGzf2qIhnhGrZ1rKRVuwMgnBBBFoXA&callback=initIrelandMaps"></script>
+</body>
+</html>

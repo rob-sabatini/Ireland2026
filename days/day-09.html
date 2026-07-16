@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Day 9 — Galway City Day + Farewell</title>
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div class="day-page">
+
+
+  <div class="day-top-wrap">
+  <div class="day-top-card">
+  <!-- Nav bar -->
+  <nav class="day-nav">
+    <div class="day-nav-head">
+      <div class="day-nav-title">Ireland 2026</div>
+      <div class="day-nav-breadcrumb">
+        <span class="nav-bc-day">Day 9</span>
+        <span class="nav-bc-dot"></span>
+        <span class="nav-bc-date">Sun, Aug 9, 2026</span>
+        <span class="nav-bc-dot"></span>
+        <span class="nav-bc-title">Galway City Day + Farewell</span>
+      </div>
+    </div>
+    <div class="day-nav-links">
+      <a href="day-08.html" class="nav-prev">← Day 8</a>
+      <a href="../index.html" class="nav-all">All Days</a>
+      <a href="day-10.html" class="nav-next">Day 10 →</a>
+    </div>
+  </nav>
+  <!-- Map — styled Google Map with Ireland palette -->
+  <div class="day-map" id="mapd9">
+    <span class="map-placeholder-label">Map with pins</span>
+  </div>
+  <script>
+  const IRELAND_STYLE=[{elementType:'geometry',stylers:[{color:'#f5f4f1'}]},{elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{elementType:'labels.text.stroke',stylers:[{color:'#f5f4f1'}]},{featureType:'water',elementType:'geometry',stylers:[{color:'#7d9bb3'}]},{featureType:'water',elementType:'labels.text.fill',stylers:[{color:'#c6d2e5'}]},{featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'poi.park',elementType:'geometry',stylers:[{color:'#c8c9a8'}]},{featureType:'poi.park',elementType:'labels.text.fill',stylers:[{color:'#656033'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#e0ddd5'}]},{featureType:'poi',elementType:'labels.text.fill',stylers:[{color:'#6c504c'}]},{featureType:'poi',elementType:'labels.icon',stylers:[{visibility:'off'}]},{featureType:'road',elementType:'geometry',stylers:[{color:'#ffffff'}]},{featureType:'road',elementType:'geometry.stroke',stylers:[{color:'#c6d2e5'}]},{featureType:'road',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'road.highway',elementType:'geometry.stroke',stylers:[{color:'#7d9bb3'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#f0ede8'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'administrative',elementType:'geometry',stylers:[{color:'#433f39'}]},{featureType:'administrative',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'administrative.land_parcel',elementType:'labels',stylers:[{visibility:'off'}]}];
+  function addPin(map,lat,lng,label,color){
+    var mk=new google.maps.Marker({position:{lat,lng},map,title:label,icon:{path:google.maps.SymbolPath.CIRCLE,scale:9,fillColor:color,fillOpacity:1,strokeColor:'#fff',strokeWeight:2}});
+    var iw=new google.maps.InfoWindow({content:'<div style="font-family:Space Grotesk,sans-serif;font-size:12px;font-weight:600;color:#433f39;padding:4px 8px;white-space:nowrap">'+label+'</div>'});
+    mk.addListener('click',function(){iw.open(map,mk)});
+  }
+  window._mapFns=window._mapFns||[];
+  window._mapFns.push(function(){
+    var map=new google.maps.Map(document.getElementById('mapd9'),{center:{lat:53.273,lng:-9.053},zoom:15,styles:IRELAND_STYLE,disableDefaultUI:true,zoomControl:true,zoomControlOptions:{position:google.maps.ControlPosition.RIGHT_BOTTOM}});
+      addPin(map,53.2749,-9.0532,"Galway Market","#656033");
+      addPin(map,53.2744,-9.0503,"Latin Quarter — Shop Street","#7d9bb3");
+      addPin(map,53.272,-9.0566,"Tigh Neachtain","#656033");
+      addPin(map,53.2695,-9.0549,"Spanish Arch","#433f39");
+      addPin(map,53.2731,-9.0575,"Il Vicolo — Bridge Mills","#996c41");
+  });
+  </script>
+
+  <!-- Tab bar -->
+  <div class="day-tabs">
+    <a href="#itinerary" class="active">Itinerary</a>
+    <a href="#locations">Key Location Pins</a>
+    <a href="#notes">Notes</a>
+  </div>
+  </div>
+  </div>
+
+  <!-- Itinerary -->
+  <div class="day-section" id="itinerary">
+    <span class="section-pill pill-galway">Itinerary</span>
+    <div class="itin-row">
+      <span class="itin-time">9:30am</span>
+      <span class="itin-desc">Slow breakfast at The Dean</span>
+    </div>
+      <p class="itin-notes">No car today. Everything is walkable.</p>
+    <div class="itin-row">
+      <span class="itin-time">10:30am</span>
+      <span class="itin-desc">Galway Market — Market Street</span>
+    </div>
+      <p class="itin-notes">One of Ireland's best weekly markets. Local food, crafts, street music.</p>
+    <div class="itin-row">
+      <span class="itin-time">12:00pm</span>
+      <span class="itin-desc">Latin Quarter wander</span>
+    </div>
+      <p class="itin-notes">Shop Street, Quay Street, medieval arches. Last proper wander of the trip.</p>
+    <div class="itin-row">
+      <span class="itin-time">1:00pm</span>
+      <span class="itin-desc">Tigh Neachtain — long pub lunch + Sunday session</span>
+    </div>
+      <p class="itin-notes">Traditional music, locals, nowhere to be. 2 hours minimum.</p>
+    <div class="itin-row">
+      <span class="itin-time">3:00pm</span>
+      <span class="itin-desc">Spanish Arch + River Corrib walk</span>
+    </div>
+      <p class="itin-notes">Beautiful Sunday afternoon. Locals gather, musicians play.</p>
+    <div class="itin-row">
+      <span class="itin-time">4:00pm</span>
+      <span class="itin-desc">Back to The Dean — pool, pack</span>
+    </div>
+      <p class="itin-notes">Pack for tomorrow's early departure.</p>
+    <div class="itin-row">
+      <span class="itin-time">7:30pm</span>
+      <span class="itin-desc">Il Vicolo — farewell dinner</span>
+    </div>
+      <p class="itin-notes">River view table requested. Italian — pasta, risotto, meat mains. Ref: BQVRTYQG.</p>
+    <div class="itin-row">
+      <span class="itin-time">9:30pm</span>
+      <span class="itin-desc">One last nightcap in Galway</span>
+    </div>
+  </div>
+
+  <!-- Key Locations -->
+  <div class="day-section" id="locations">
+    <span class="section-pill pill-burren">Key Location Pins</span>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Galway+Market+Market+Street+Galway" target="_blank">Galway Market — Market Street</a><br><span style="color:#6c504c;font-size:11px">One of Ireland's best weekly markets. Runs until early afternoon.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Latin+Quarter+Galway+Shop+Street" target="_blank">Latin Quarter — Shop Street & Quay Street</a><br><span style="color:#6c504c;font-size:11px">The heart of Galway. Medieval arches, colourful shopfronts, buskers.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Tigh+Neachtain+Galway+Cross+Street" target="_blank">Tigh Neachtain — Cross Street</a><br><span style="color:#6c504c;font-size:11px">One of Galway's great traditional pubs. Sunday session in the afternoon.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Spanish+Arch+Galway" target="_blank">Spanish Arch</a><br><span style="color:#6c504c;font-size:11px">14th-century city wall on the river. Beautiful Sunday afternoon spot.</span></p>
+    <p class="location-pin"><a href="https://www.google.com/maps/search/?api=1&query=Il+Vicolo+Restaurant+Bridge+Mills+Galway" target="_blank">Il Vicolo — Bridge Mills</a><br><span style="color:#6c504c;font-size:11px">Italian in historic Bridge Mills. River view table requested. Ref BQVRTYQG.</span>
+      <span style="font-size:10px;font-weight:600;background:#ddf0e6;color:#1a6b3c;padding:2px 8px;border-radius:20px;margin-top:4px;display:inline-block">✓ Booked · 7:30pm · 4 people</span></p>
+  </div>
+
+  <div class="day-section">
+    <span class="section-pill pill-atlantic">Contacts</span>
+    <div class="contact-row"><span class="contact-label">Il Vicolo ref</span><span class="contact-value">BQVRTYQG</span></div>
+    <div class="contact-row"><span class="contact-label">Il Vicolo Restaurant</span><span class="contact-value"><a href="tel:+35391530515">+353 91 530 515</a></span></div>
+    <div class="contact-row"><span class="contact-label">The Dean Galway</span><span class="contact-value"><a href="tel:+35391865700">+353 91 865 700</a></span></div>
+  </div>
+  <!-- Notes -->
+  <div class="day-section" id="notes">
+    <span class="section-pill pill-connemara">Notes</span>
+    <p class="note-body">→ No car today — everything is walkable from The Dean. Galway is a very small city.</p>
+    <p class="note-body">→ Pack tonight after dinner — early departure tomorrow.</p>
+    <p class="note-body">→ Il Vicolo — river view table requested on booking. Mention it when you arrive.</p>
+    <p class="note-body">→ Confirm your Shannon flight time and work back to set your morning departure from Galway.</p>
+  </div>
+
+  <!-- Bottom nav -->
+  <div class="day-bottom-nav">
+    <a href="day-08.html" class="nav-prev">← Day 8</a>
+    <a href="../index.html" class="nav-center">All Days</a>
+    <a href="day-10.html" class="nav-next">Day 10 →</a>
+  </div>
+
+</div>
+<script>window.initIrelandMaps = function () { (window._mapFns || []).forEach(function (f) { f(); }); };</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxGPGzf2qIhnhGrZ1rKRVuwMgnBBBFoXA&callback=initIrelandMaps"></script>
+</body>
+</html>
