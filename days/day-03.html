@@ -35,11 +35,34 @@
     <span class="map-placeholder-label">Map with pins</span>
   </div>
   <script>
-  const IRELAND_STYLE=[{elementType:'geometry',stylers:[{color:'#f5f4f1'}]},{elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{elementType:'labels.text.stroke',stylers:[{color:'#f5f4f1'}]},{featureType:'water',elementType:'geometry',stylers:[{color:'#7d9bb3'}]},{featureType:'water',elementType:'labels.text.fill',stylers:[{color:'#c6d2e5'}]},{featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'poi.park',elementType:'geometry',stylers:[{color:'#c8c9a8'}]},{featureType:'poi.park',elementType:'labels.text.fill',stylers:[{color:'#656033'}]},{featureType:'poi',elementType:'geometry',stylers:[{color:'#e0ddd5'}]},{featureType:'poi',elementType:'labels.text.fill',stylers:[{color:'#6c504c'}]},{featureType:'poi',elementType:'labels.icon',stylers:[{visibility:'off'}]},{featureType:'road',elementType:'geometry',stylers:[{color:'#ffffff'}]},{featureType:'road',elementType:'geometry.stroke',stylers:[{color:'#c6d2e5'}]},{featureType:'road',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'road.highway',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'road.highway',elementType:'geometry.stroke',stylers:[{color:'#7d9bb3'}]},{featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#e8e6de'}]},{featureType:'road.local',elementType:'geometry',stylers:[{color:'#f0ede8'}]},{featureType:'transit',elementType:'geometry',stylers:[{color:'#c6d2e5'}]},{featureType:'administrative',elementType:'geometry',stylers:[{color:'#433f39'}]},{featureType:'administrative',elementType:'labels.text.fill',stylers:[{color:'#433f39'}]},{featureType:'administrative.land_parcel',elementType:'labels',stylers:[{visibility:'off'}]}];
+  const IRELAND_STYLE=[
+    {elementType:'geometry',stylers:[{color:'#f5f4f1'}]},
+    {elementType:'labels',stylers:[{visibility:'off'}]},
+    {featureType:'water',elementType:'geometry',stylers:[{color:'#7d9bb3'}]},
+    {featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#e8e6de'}]},
+    {featureType:'poi.park',elementType:'geometry',stylers:[{color:'#c8c9a8'}]},
+    {featureType:'poi',elementType:'geometry',stylers:[{visibility:'off'}]},
+    {featureType:'road',elementType:'geometry',stylers:[{color:'#ffffff'}]},
+    {featureType:'road',elementType:'geometry.stroke',stylers:[{color:'#e6e3dc'}]},
+    {featureType:'road.highway',elementType:'geometry',stylers:[{color:'#eae7e0'}]},
+    {featureType:'transit',stylers:[{visibility:'off'}]},
+    {featureType:'administrative',elementType:'geometry',stylers:[{visibility:'off'}]}
+  ];
   function addPin(map,lat,lng,label,color){
     var mk=new google.maps.Marker({position:{lat,lng},map,title:label,icon:{path:google.maps.SymbolPath.CIRCLE,scale:9,fillColor:color,fillOpacity:1,strokeColor:'#fff',strokeWeight:2}});
     var iw=new google.maps.InfoWindow({content:'<div style="font-family:Space Grotesk,sans-serif;font-size:12px;font-weight:600;color:#433f39;padding:4px 8px;white-space:nowrap">'+label+'</div>'});
     mk.addListener('click',function(){iw.open(map,mk)});
+  }
+
+  function fitPins(map, pins){
+    if(!pins || !pins.length) return;
+    if(pins.length===1){ map.setCenter(pins[0]); map.setZoom(15); return; }
+    var b=new google.maps.LatLngBounds();
+    pins.forEach(function(p){ b.extend(p); });
+    map.fitBounds(b, 40);
+    google.maps.event.addListenerOnce(map,'bounds_changed',function(){
+      if(map.getZoom()>15) map.setZoom(15);
+    });
   }
   window._mapFns=window._mapFns||[];
   window._mapFns.push(function(){
@@ -48,6 +71,7 @@
       addPin(map,53.4239,-7.9403,"Athlone — Bastion Kitchen","#996c41");
       addPin(map,53.423,-7.942,"Athlone Castle","#7d9bb3");
       addPin(map,53.277,-9.0467,"The Dean Galway","#433f39");
+    fitPins(map,[{lat:53.3388,lng:-6.291},{lat:53.4239,lng:-7.9403},{lat:53.423,lng:-7.942},{lat:53.277,lng:-9.0467}]);
   });
   </script>
 
