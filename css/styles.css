@@ -39,16 +39,16 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   padding-bottom: 2rem;
 }
 
-/* Hero — 500px, inset 10px, rounded 20px, centered title */
+/* Hero — 500px, inset 10px, rounded 20px, title+sub in top third */
 .cover-hero {
   margin: 0 10px;
   height: 500px;
   background: var(--galway);
   border-radius: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 10px;
+  padding: 52px 30px 10px;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -68,14 +68,30 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   background: rgba(0, 0, 0, 0.32);
   z-index: 1;
 }
+.cover-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
 .cover-hero h1 {
   font-size: 30px;
   font-weight: 700;
   color: #fff;
   text-align: center;
   letter-spacing: 1.2px;
-  position: relative;
-  z-index: 2;
+}
+.cover-hero-sub {
+  font-family: var(--serif);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.55;
+  text-align: center;
+  max-width: 290px;
 }
 
 /* Day card wrapper — 10px horizontal padding */
