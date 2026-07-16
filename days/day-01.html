@@ -36,16 +36,25 @@
   <script>
   const IRELAND_STYLE=[
     {elementType:'geometry',stylers:[{color:'#f5f4f1'}]},
-    {elementType:'labels',stylers:[{visibility:'off'}]},
+    {elementType:'labels.icon',stylers:[{visibility:'off'}]},
+    {elementType:'labels.text.fill',stylers:[{color:'#6c675e'}]},
+    {elementType:'labels.text.stroke',stylers:[{color:'#f5f4f1'}]},
     {featureType:'water',elementType:'geometry',stylers:[{color:'#7d9bb3'}]},
+    {featureType:'water',elementType:'labels.text.fill',stylers:[{color:'#4f6a83'}]},
     {featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#e8e6de'}]},
     {featureType:'poi.park',elementType:'geometry',stylers:[{color:'#c8c9a8'}]},
-    {featureType:'poi',elementType:'geometry',stylers:[{visibility:'off'}]},
+    {featureType:'poi',elementType:'labels',stylers:[{visibility:'off'}]},
     {featureType:'road',elementType:'geometry',stylers:[{color:'#ffffff'}]},
     {featureType:'road',elementType:'geometry.stroke',stylers:[{color:'#e6e3dc'}]},
+    {featureType:'road.local',elementType:'labels',stylers:[{visibility:'off'}]},
+    {featureType:'road.arterial',elementType:'labels',stylers:[{visibility:'simplified'}]},
     {featureType:'road.highway',elementType:'geometry',stylers:[{color:'#eae7e0'}]},
+    {featureType:'road.highway',elementType:'labels',stylers:[{visibility:'simplified'}]},
     {featureType:'transit',stylers:[{visibility:'off'}]},
-    {featureType:'administrative',elementType:'geometry',stylers:[{visibility:'off'}]}
+    {featureType:'administrative',elementType:'geometry',stylers:[{visibility:'off'}]},
+    {featureType:'administrative.land_parcel',stylers:[{visibility:'off'}]},
+    {featureType:'administrative.neighborhood',stylers:[{visibility:'off'}]},
+    {featureType:'administrative.locality',elementType:'labels',stylers:[{visibility:'on'}]}
   ];
   function addPin(map,lat,lng,label,color){
     var mk=new google.maps.Marker({position:{lat,lng},map,title:label,icon:{path:google.maps.SymbolPath.CIRCLE,scale:9,fillColor:color,fillOpacity:1,strokeColor:'#fff',strokeWeight:2}});
