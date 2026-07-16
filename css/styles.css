@@ -348,7 +348,7 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   color: var(--atlantic);
   line-height: 1.5;
 }
-.location-pin a { color: var(--atlantic); }
+.location-pin a { color: #3c5d76; font-weight: 600; }
 .location-pin a::before { content: "📍 "; }
 
 /* Notes body */
