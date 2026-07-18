@@ -392,3 +392,58 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 402px) {
   .cover, .day-page { max-width: 100%; }
 }
+
+/* ─── DESKTOP (≥900px) ───────────────────────────────────────────
+   Not a stretch of the mobile layout — cards reflow into a grid,
+   the day-detail page splits into itinerary + a sidebar column,
+   and nav/tab content stays capped at a comfortable width even
+   though the bars themselves run full-width. */
+@media (min-width: 900px) {
+
+  /* Home */
+  .cover {
+    max-width: 1160px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 28px 28px 3rem;
+  }
+  .cover-hero {
+    grid-column: 1 / -1;
+    height: 440px;
+    margin: 0;
+  }
+  .cover-hero-content { gap: 18px; }
+  .cover-hero h1 { font-size: 44px; letter-spacing: 1.6px; }
+  .cover-hero-sub { font-size: 16px; max-width: 440px; }
+  .day-card-wrap { padding: 0; }
+  .day-card-image { height: 220px; }
+
+  /* Day detail */
+  .day-page {
+    max-width: 1080px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 20px;
+    padding: 0 28px 3rem;
+  }
+  .day-top-wrap { grid-column: 1 / -1; grid-row: 1; padding: 28px 0 0; }
+  #itinerary { grid-column: 1; grid-row: 2; }
+  .day-sidebar {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+  .day-bottom-nav { grid-column: 1 / -1; grid-row: 3; }
+
+  .day-section { border-radius: 16px; box-shadow: 0 1px 3px rgba(67, 63, 57, 0.07); }
+
+  /* Nav/tabs run full-width as bars, but their content stays capped
+     so it doesn't feel stretched across a wide screen */
+  .day-nav { align-items: flex-start; padding: 26px 36px; }
+  .day-nav-head, .day-nav-links { max-width: 620px; }
+  .day-map { height: 460px; }
+  .day-tabs { justify-content: flex-start; gap: 44px; padding-left: 36px; }
+}
